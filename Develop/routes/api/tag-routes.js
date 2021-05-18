@@ -7,7 +7,7 @@ const {
 
 // The `/api/tags` endpoint
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // find all tags
     const allTagData = await Tag.findAll({
