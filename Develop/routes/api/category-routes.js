@@ -9,7 +9,7 @@ const {
 
 // The `/api/categories` endpoint
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // find all categories
     const allCategoryData = await Category.findAll({
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
   }
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     // find one category by its `id` value
     const categoryData = await Category.findByPk(req.params.id, {
@@ -52,10 +52,10 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     // update a category by its `id` value
-    const updateCategory = awaitCategory.update(req.body, {
+    const updateCategory = await Category.update(req.body, {
       where: {
         id: req.params.id
       }
@@ -73,7 +73,7 @@ router.put('/:id', (req, res) => {
   }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     // delete a category by its `id` value 
     const destroyCategory = await Category.destroy({

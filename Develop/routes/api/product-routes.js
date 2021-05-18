@@ -9,7 +9,7 @@ const {
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // find all products
     const allProductData = await Product.findAll({
@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 });
 
 // get one product
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     // find a single product by its `id`
     const singleProductData = await Product.findByPk(req.params.id, {
@@ -136,7 +136,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     // delete one product by its `id` value 
     const productData = await Product.destroy({
