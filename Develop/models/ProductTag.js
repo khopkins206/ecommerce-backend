@@ -7,7 +7,7 @@ const sequelize = require('../config/connection');
 
 class ProductTag extends Model {}
 
-ProductTag.init({
+const fields = {
   // define columns
   id: {
     type: DataTypes.INTEGER,
@@ -31,12 +31,15 @@ ProductTag.init({
       unique: false
     }
   }
-}, {
+};
+
+const options = {
   sequelize,
   timestamps: false,
   freezeTableName: true,
   underscored: true,
   modelName: 'product_tag',
-});
+};
 
+ProductTag.init(fields, options)
 module.exports = ProductTag;
